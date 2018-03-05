@@ -10,23 +10,35 @@
             $("button").click(function() {
                 var sceneRadioValue = $("input[name=scene]:checked").val();
                 var title = $("#title").val();
+                var titleColor = $("#titleColor").val();
                 var scene;
                 var face1 = $("#face1").val();
                 var face2 = $("#face2").val();
-                var face1pos;
-                var face2pos;
+                var face1Top;
+                var face1Left;
+                var face2Top;
+                var face2Left;
 
                 if (sceneRadioValue == "house") {
-                    scene = "https://png.pngtree.com/thumb_back/fw800/back_pic/03/59/79/0557a49d0f32599.jpg";
+                    scene = "http://stride-study.org/wp-content/uploads/2016/03/canstockphoto7414192.jpg";
+                    face1Top = 500;
+                    face1Left = 350;
+                    face2Top = 600;
+                    face2Left = 700;
                 }
-                else if (sceneRadioValue == "beach") {
-                    scene = "https://media.istockphoto.com/photos/abstract-blue-background-picture-id478985058?k=6&m=478985058&s=612x612&w=0&h=eqE8R5TgMU5PwPvEeOsulrGkZaAUI7wdhzrJwF2TUp8="
+                else if (sceneRadioValue == "workplace") {
+                    scene = "https://www.homelingua.com/wp-content/uploads/2015/04/business-english-student-and-teachers-shrunk-wide.jpg"
+                    face1Top = 100;
+                    face1Left = 300;
+                    face2Top = 130;
+                    face2Left = 950;
                 }
 
                 $("h1").html(title);
+                $("h1").css("color",titleColor);
                 $("img#scene").attr("src", scene);
-                $("img#face1").attr("src", face1);
-                $("img#face2").attr("src", face2);
+                $("img#face1").attr("src", face1).css({"top":face1Top,"left":face1Left});
+                $("img#face2").attr("src", face2).css({"top":face2Top,"left":face2Left});
             });
 
         });
@@ -39,14 +51,14 @@
         img#face1 {
             position: absolute;
             top: 10px;
-            width: 100px;
+            width: 325px;
             height: auto;
         }
 
         img#face2 {
             position: absolute;
             top: 10px;
-            width: 100px;
+            width: 300px;
             height: auto;
         }
     </style>
@@ -55,10 +67,11 @@
 <body>
     scene:<br>
     <input type="radio" name="scene" value="house" checked>house<br>
-    <input type="radio" name="scene" value="beach">beach<br>
+    <input type="radio" name="scene" value="workplace">workplace<br>
     <input id="title" placeholder="title"><br>
-    <input id="face1" placeholder="face1"><br>
-    <input id="face2" placeholder="face2"><br>
+    <input id="titleColor" placeholder="title color"><br>
+    <input id="face1" placeholder="first face URL"><br>
+    <input id="face2" placeholder="second face URL"><br>
     <button>create scene</button><br>
     <h1></h1>
     <div>
