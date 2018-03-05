@@ -13,6 +13,8 @@
                 var scene;
                 var face1 = $("#face1").val();
                 var face2 = $("#face2").val();
+                var face1pos;
+                var face2pos;
 
                 if (sceneRadioValue == "house") {
                     scene = "https://png.pngtree.com/thumb_back/fw800/back_pic/03/59/79/0557a49d0f32599.jpg";
@@ -33,10 +35,19 @@
         div {
             position: relative;
         }
-        
+
         img#face1 {
             position: absolute;
             top: 10px;
+            width: 100px;
+            height: auto;
+        }
+
+        img#face2 {
+            position: absolute;
+            top: 10px;
+            width: 100px;
+            height: auto;
         }
     </style>
 </head>
