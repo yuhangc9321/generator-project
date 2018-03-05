@@ -7,15 +7,54 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>
         $(function() {
+            $("button").click(function() {
+                var sceneRadioValue = $("input[name=scene]:checked").val();
+                var title = $("#title").val();
+                var scene;
+                var face1 = $("#face1").val();
+                var face2 = $("#face2").val();
 
+                if (sceneRadioValue == "house") {
+                    scene = "https://png.pngtree.com/thumb_back/fw800/back_pic/03/59/79/0557a49d0f32599.jpg";
+                }
+                else if (sceneRadioValue == "beach") {
+                    scene = "https://media.istockphoto.com/photos/abstract-blue-background-picture-id478985058?k=6&m=478985058&s=612x612&w=0&h=eqE8R5TgMU5PwPvEeOsulrGkZaAUI7wdhzrJwF2TUp8="
+                }
 
+                $("h1").html(title);
+                $("img#scene").attr("src", scene);
+                $("img#face1").attr("src", face1);
+                $("img#face2").attr("src", face2);
+            });
 
         });
     </script>
+    <style>
+        div {
+            position: relative;
+        }
+        
+        img#face1 {
+            position: absolute;
+            top: 10px;
+        }
+    </style>
 </head>
 
 <body>
-
+    scene:<br>
+    <input type="radio" name="scene" value="house" checked>house<br>
+    <input type="radio" name="scene" value="beach">beach<br>
+    <input id="title" placeholder="title"><br>
+    <input id="face1" placeholder="face1"><br>
+    <input id="face2" placeholder="face2"><br>
+    <button>create scene</button><br>
+    <h1></h1>
+    <div>
+        <img id="scene">
+        <img id="face1">
+        <img id="face2">
+    </div>
 </body>
 
 </html>
